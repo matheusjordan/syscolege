@@ -1,4 +1,5 @@
 alunosDic = {}
+notas = []
 alunosLista = []
 loop = True
 
@@ -10,7 +11,6 @@ while(loop):
         esc = int(input("\nEscolha inválida!\nDigite novamente: "))
     
     else:
-
         #Menu de Alunos
         while(esc == 1):
             opc = int(input("\n-- Alunos --\n01- Cadastrar Aluno\n02- Remover Aluno\n03- Listagem de Alunos\n00- Menu anterior\nEscolha uma opção: "))
@@ -18,14 +18,67 @@ while(loop):
             while(opc < 0 or opc > 3):
                 opc = int(input("\nEscolha inválida\nDigite novamente: "))
             
+            #Cadastrar aluno
             if(opc == 1):
-                print("opc 1")
-            
-            elif(opc == 2):
-                print("opc 2")
+                ler = input("\nDigite o nome do Aluno: ").upper()
+                ver = input("Digite novamente o nome do Aluno: ").upper()
 
+                #Verificação do nome de alunos
+                while(ler != ver):
+                    ler = input("\nNomes diferentes!\nDigite o nome do aluno corretamente: ").upper()
+                    ver = input("Digite novamente o nome do aluno: ").upper()
+
+                
+                notas = list(map(float, input("\nDigite as notas do Aluno: ").split()))
+                
+                #Vertificação da lista de notas
+                c = len(notas)
+                while(c < 1 or c > 3):
+                    notas = list(map(float, input("\nNotas inválidas\nDigite notas válidas ou 0: ")))
+                    c = len(notas)
+
+                #verificação individual das notas
+                for i in range(c):
+                    while(notas[i] < 0 or notas[i] > 10):
+                        notas[i] = float(input("\n" + str(i+1) + "º Nota inválida\nDigite novamente: "))
+                
+                print("\nAluno", ler,"foi cadastrado com sucesso!")
+                alunosDic[ler] = notas
+
+            #Deletar aluno
+            elif(opc == 2):
+                ler = input("\nDigite o nome do Aluno: ").upper()
+
+                #Confirmar antes de apagar
+                if(ler in alunosDic):
+                    ok = input("\nRealmente deseja deletar o aluno (S/N)? ").upper()
+                    if(ok == "S"):
+                        del alunosDic[ler]
+                        print("Aluno "+ ler +" excluido com Sucesso!")
+
+                else:
+                    print("\nAluno  digitado não se encontra na lista!")
+                    
+            #Listagem de Alunos
             elif(opc == 3):
-                print("opc 3")
+                if(len(alunosDic) > 0):
+                    ler = int(input("\n01- Por Nome\n02- Por Nota\nEscolha uma opção: "))
+
+                    while(ler < 1 or  ler > 2):
+                        ler = int(input("\nEscolha inválida\nDigite novamente: "))
+
+                    if(ler == 1):
+                        for i in alunosDic:
+                            alunosLista.append(i)
+                        alunosLista.sort()
+                        for i in alunosLista:
+                            print("\nNome:", i,"\nNotas:", alunosDic[i],"\nMédia: %.1f" %(sum(alunosDic[i])/3),"\n++_______+++")
+                        
+                    elif(ler == 2):
+                        print("\nEm breve")
+                
+                else:
+                    print("\nNão há Alunos cadastrados no sistema!")
             
             else:
                 esc = 10
