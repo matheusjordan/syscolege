@@ -56,7 +56,7 @@ while(loop):
         while(esc == 3):
             opc = int(input("\n-- Menu de Informações --\n01- Consultar Aluno por nome\n02- Exbir melhor Aluno\n03- Alunos aprovados \n04- Alunos na final\n05- Alunos reprovados\nEscolha uma opção: "))
 
-            while(esc < 0 or esc > 5):
+            while(opc < 0 or opc > 5):
                 opc = int(input("\nEscolha inválida\nDigite novamente: "))
 
             if(opc == 1):
