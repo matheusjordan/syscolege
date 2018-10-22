@@ -72,7 +72,7 @@ while(loop):
                             alunosLista.append(i)
                         alunosLista.sort()
                         for i in alunosLista:
-                            print("\nNome:", i,"\nNotas:", alunosDic[i],"\nMédia: %.1f" %(sum(alunosDic[i])/3),"\n++_______+++")
+                            print("\nNome:", i,"\nNotas:", alunosDic[i],"\nMédia: %.1f" %(sum(alunosDic[i])/3),"\n++_______++")
                         
                     elif(ler == 2):
                         print("\nEm breve")
@@ -113,7 +113,12 @@ while(loop):
                 opc = int(input("\nEscolha inválida\nDigite novamente: "))
 
             if(opc == 1):
-                print("opc 1")
+                ler = input("\nDigite o nome do Aluno: ").upper()
+                
+                if(ler in alunosDic):
+                    print("\nAluno:",ler,"\nNotas:",alunosDic[ler],"\nMédia: %.1f" %(sum(alunosDic[ler]) / 3),"\nStatus: ")
+                else:
+                    print("\nAluno não cadastrado!")
         
             elif(opc == 2):
                 print("opc 2")
