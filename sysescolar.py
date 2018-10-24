@@ -1,7 +1,6 @@
-alunosDic = {}
+alunosDic = {"Lucas": [7.5,6.7,5.6]}
 notas = []
 alunosLista = []
-
 loop = True
 
 while(loop):
@@ -92,13 +91,44 @@ while(loop):
                 opc = int(input("\nEscolha inválida\nDigite novamente: "))
 
             if(opc == 1):
-                print("opc 1")
-            
+                chec_aluno = input("Digite o nome do aluno: ")
+                for chec_aluno in alunosDic:
+                    alunosLista.append(chec_aluno)
+                if chec_aluno in alunosLista:
+                    chec_nota = len(notas)
+                    if chec_nota == 3:
+                       print("Aluno já possui três notas") 
+                    if chec_nota < 3:  
+                        nota_adicionar = float(input("Digite a nota do aluno: "))
+                        print("Nota adicionada")
+                        notas.append(nota_adicionar)
+                alunosLista = []        
             elif(opc == 2):
-                print("opc 2")
-
-            elif(opc == 3):
-                print("opc 3")
+                chec_aluno = input("Digite o nome do aluno: ")
+                for i in alunosDic:
+                    alunosLista.append(i)
+                if i in alunosLista:
+                    print("Notas:",alunosDic[i])
+                    notas = alunosDic[i]
+                modificar = float(input("Digite a nota à trocar: "))
+                print(notas)
+                for i in notas:
+                    if i == modificar:
+                        pos = notas.index(modificar)
+                        modificar = float(input("Digite a nota à modificar: "))
+                        notas[pos] = modificar               
+            elif opc == 3:
+                chec_aluno = input("Digite o nome do aluno: ")
+                for i in alunosDic:
+                    alunosLista.append(i)
+                if i in alunosLista:
+                    print("Notas:",alunosDic[i])
+                remover = float(input("Digite a nota à remover: "))
+                for i in notas:
+                    if i == remover:
+                        notas.remove(remover)
+                        print("Nota removida com sucesso")
+                alunosLista = []
 
             elif(opc == 4):
                 print("opc 4")
