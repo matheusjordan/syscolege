@@ -44,6 +44,7 @@ while(loop):
                         notas[i] = float(input("\n" + str(i+1) + "º Nota inválida\nDigite novamente: "))
                 
                 print("\nAluno", ler,"foi cadastrado com sucesso!")
+                print(ler)
                 alunosDic[ler] = notas
 
             #Deletar aluno
