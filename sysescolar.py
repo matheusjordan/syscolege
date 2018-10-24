@@ -1,6 +1,7 @@
 alunosDic = {}
 notas = []
 alunosLista = []
+
 loop = True
 
 while(loop):
