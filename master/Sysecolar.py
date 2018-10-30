@@ -1,8 +1,6 @@
 import Menu
 
-alunosDic = {"MATHEUS":[10.0,9.0]}
-notas, alunosLista = [], []
-
+alunosDic = {"MATHEUS":[9.0,7.0,7.0],"LUCAS":[9.0,7.0,8.0]}
 esc, opc = 0, 0
 loop = True
 
@@ -33,7 +31,7 @@ while(loop):
            
             #Listagem de Alunos
             elif(opc == 3):
-                Alunos.listAlunos(alunosDic, alunosLista)
+                Alunos.listAlunos(alunosDic)
             
             else:
                 esc = 10
@@ -47,15 +45,15 @@ while(loop):
 
             #Adicionar Nota
             if(opc == 1):
-                Notas.addNota(alunosDic,alunosLista,notas)
+                Notas.addNota(alunosDic)
             
             #Editar Nota
             elif(opc == 2):
-                Notas.editNota(alunosDic,alunosLista,notas)
+                Notas.editNota(alunosDic)
 
             #Deletar Nota
             elif(opc == 3):
-                Notas.delNota(alunosDic,alunosLista,notas)
+                Notas.delNota(alunosDic)
 
             elif(opc == 4):
                 print("opc 4")
@@ -73,7 +71,7 @@ while(loop):
                 Infos.buscarAluno(alunosDic)
         
             elif(opc == 2):
-                print("opc 2")
+                Infos.bestAluno(alunosDic)
 
             elif(opc == 3):
                 print("opc 3")

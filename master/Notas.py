@@ -1,4 +1,6 @@
-def addNota(alunosDic={}, alunosLista=[], notas=[]):
+def addNota(alunosDic={}):
+    alunosLista = []
+
     ler = input("\nDigite o nome do Aluno: ").upper()
     
     for ler in alunosDic:
@@ -6,23 +8,22 @@ def addNota(alunosDic={}, alunosLista=[], notas=[]):
         break
 
     if(ler in alunosLista):
-        chec_nota = len(alunosDic[ler])
+        nota = len(alunosDic[ler])
 
-        if(chec_nota == 3):
-            print("\nAluno já possui três Notas")
+        if(nota == 3):
+            return "\nAluno já possui três Notas"
 
-        elif(chec_nota < 3):
+        elif(nota < 3):
             ler = float(input("\nDigite a nota do Aluno: "))
-            print("\nNota",ler,"adicionada com Sucesso!")
             alunosDic[alunosLista[0]].append(ler)
+            return "\nNota",ler,"adicionada com Sucesso!"
 
-    alunosLista = []
+def editNota(alunosDic={}):
+    notas = []
 
-def editNota(alunosDic={}, alunosLista=[], notas=[]):
     ler = input("\nDigite o nome do Aluno: ").upper()
 
     if(ler in alunosDic):
-        alunosLista.append(ler)
         print("\nNotas:", alunosDic[ler])
         notas = alunosDic[ler]
 
@@ -36,9 +37,9 @@ def editNota(alunosDic={}, alunosLista=[], notas=[]):
             notas[pos] = ler
             break
 
-    alunosLista = []
+def delNota(alunosDic={}):
+    notas = []
 
-def delNota(alunosDic={}, alunosLista=[], notas=[]):
     ler = input("\nDigite o nome do Aluno: ").upper()
 
     if ler in alunosDic:
@@ -47,9 +48,6 @@ def delNota(alunosDic={}, alunosLista=[], notas=[]):
         print("\nNotas:",notas)
 
         ler = float(input("\nDigite uma das Notas: "))
-        
-        
+           
     else:
         return "\nAluno não cadastrado!"
-    
-    notas = []

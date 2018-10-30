@@ -31,6 +31,7 @@ def addAluno(alunosDic = {}):
 
 def delAluno(alunosDic = {}):
     ler = input("\nDigite o nome do Aluno: ").upper()
+    
     #Confirmar antes de apagar
     if(ler in alunosDic):
         ok = input("\nRealmente deseja deletar o aluno (S/N)? ").upper()
@@ -41,7 +42,9 @@ def delAluno(alunosDic = {}):
     else:
         print("\nAluno  digitado não se encontra na lista!")
 
-def listAlunos(alunosDic = {}, alunosLista = []):
+def listAlunos(alunosDic = {}):
+    alunosLista = []
+
     ler = int(input("\n01- Por Nome\n02- Por Nota\nEscolha uma opção: "))
 
     while(ler < 1 or  ler > 2):
