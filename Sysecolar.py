@@ -3,11 +3,6 @@ import Menu
 alunosDic = {"MATHEUS":[9.0,7.0,7.0],"LUCAS":[9.0,7.0]}
 esc, opc = 0, 0
 loop = True
-notas = []
-alunos_aprovados = []
-alunos_reprovados = []
-alunos_final = []
-
 
 #Menu Inicial
 while(loop):
@@ -15,8 +10,9 @@ while(loop):
     #Lista de opções
     esc = Menu.menuInit()
 
-    while(esc < 0 or esc > 3):
-        esc = int(input("\nEscolha inválida!\nDigite novamente: "))
+    for i in range(3):
+        if(esc < 0 or esc > 3):
+            esc = int(input("\nEscolha inválida!\nDigite novamente: "))
 
     else:
         #Menu de Alunos
@@ -60,12 +56,9 @@ while(loop):
             elif(opc == 3):
                 Notas.delNota(alunosDic)
 
+            #Média da Turma
             elif(opc == 4):
-                for i in alunosDic:
-                    notas.append(sum(alunosDic[i]))
-                numero_alunos = len(notas)
-                media_turma = (sum(notas) / (numero_alunos *3))
-                print("Média da turma: %.1f" %media_turma)
+                Notas.mediaTurma(alunosDic)
                 
             else:
                 esc = 10
@@ -74,33 +67,21 @@ while(loop):
         while(esc == 3):
             import Infos
             
+            #Menu de escolha
             opc = Menu.menuInfo()
 
+            #Consultar aluno
             if(opc == 1):
                 Infos.buscarAluno(alunosDic)
-        
+
+            #Consultar melhor aluno
             elif(opc == 2):
                 Infos.bestAluno(alunosDic)
 
-            elif(opc == 3):
-                for i in alunosDic:
-                    media = sum(alunosDic[i]) / 3
-                    if media >= 7:
-                        alunos_aprovados.append(i)
-                print("Aluno(s) aprovado(s):",alunos_aprovados)
-            elif(opc == 4):
-                for i in alunosDic:
-                    media = sum(alunosDic[i]) / 3
-                    if 5 <= media < 7 :
-                        alunos_final.append(i)
-                print("Aluno(s) na final:",alunos_final)
-        
-            elif(opc == 5):
-                for i in alunosDic:
-                    media = sum(alunosDic[i]) / 3
-                    if media < 5:
-                        alunos_reprovados.append(i)
-                print("Aluno(s) reprovado(s):",alunos_reprovados)
+            #Consultar alunos aprovados, na final e reprovados
+            elif(opc == 3 or opc == 4 or opc == 5):
+                Infos.resultAlunos(opc, alunosDic)
+
             else:
                 esc = 10
 
