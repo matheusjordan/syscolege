@@ -1,15 +1,19 @@
-<<<<<<< HEAD
 def buscarAluno(alunosDic): 
-=======
-def buscarAluno(alunosDic = {}): 
->>>>>>> master
     ler = input("\nDigite o nome do Aluno: ").upper()
            
     if(ler in alunosDic):
-        print("\nAluno:",ler,"\nNotas:",alunosDic[ler],"\nMédia: %.1f" %(sum(alunosDic[ler]) / 3),"\nStatus: ")
+        media = sum(alunosDic[ler]) / 3
+        print("\nAluno:",ler,"\nNotas:",alunosDic[ler],"\nMédia: %.1f" %(media))
+
+        if(media >= 7):
+            print("Status: Aluno Aprovado")
+        elif(media < 7 and media >= 5):
+            print("Status: Aluno na Final")
+        if(media < 5):
+            print("Status: Aluno Reprovado")
+
     else:
         print("\nAluno não cadastrado!")
-<<<<<<< HEAD
 
 #Função que exibe o melhor ou os melhores alunos
 def bestAluno(alunosDic):
@@ -64,5 +68,3 @@ def resultAlunos(opc, alunosDic):
     elif(opc == 5):
         for i in alunos_reprovados:
             print(i)
-=======
->>>>>>> master

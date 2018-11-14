@@ -1,6 +1,9 @@
 import Menu
+import json
 
-alunosDic = {"MATHEUS":[9.0,7.0,7.0],"LUCAS":[9.0,7.0]}
+arquivo = open('alunos.json', 'r')
+alunosDic = json.load(arquivo)
+
 esc, opc = 0, 0
 loop = True
 
@@ -88,3 +91,4 @@ while(loop):
         #Mata Loop
         else:
             loop = True if esc == 10 else False
+            arquivo.close()
