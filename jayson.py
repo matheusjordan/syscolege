@@ -9,5 +9,5 @@ def abrir(arq):
 
 def salvar(dic, arq):
     file = open(arq,'w')
-    json.dump(dic,arq)
+    json.dump(dic,file)
     file.close()
