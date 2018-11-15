@@ -1,11 +1,9 @@
 import Menu
-import json
-
-arquivo = open('alunos.json', 'r')
-alunosDic = json.load(arquivo)
+import jayson
 
 esc, opc = 0, 0
 loop = True
+alunosDic = jayson.abrir('alunos.json')
 
 #Menu Inicial
 while(loop):
@@ -91,4 +89,4 @@ while(loop):
         #Mata Loop
         else:
             loop = True if esc == 10 else False
-            arquivo.close()
+            jayson.salvar(alunosDic,'alunos.json')

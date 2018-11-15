@@ -41,30 +41,34 @@ def bestAluno(alunosDic):
 
 #Função para separar alunos aprovados dos reprovados
 def resultAlunos(opc, alunosDic):
-    alunos_aprovados = []
-    alunos_reprovados = []
-    alunos_final = []
+    alunos_aprovados = {}
+    alunos_reprovados = {}
+    alunos_final = {}
 
     for i in alunosDic:
         media = sum(alunosDic[i]) / 3
+        notas = alunosDic[i]
 
         if(media >= 7):
-            alunos_aprovados.append(i)
+            alunos_aprovados[i] = notas
         
         elif(5 <= media < 7):
-            alunos_final.append(i)
+            alunos_final[i] = notas
         
         elif(media < 5):
-            alunos_reprovados.append(i)
+            alunos_reprovados[i] = notas
     
     if(opc == 3):
         for i in alunos_aprovados:
-            print(i)
+            media = sum(alunosDic[i]) / 3
+            print(f"\nNome: {i}\nNotas: {alunosDic[i]}\nMédia: %.1f" %(media))
 
     elif(opc == 4):
         for i in alunos_final:
-            print(i)
+            media = sum(alunosDic[i]) / 3
+            print(f"\nNome: {i}\nNotas: {alunosDic[i]}\nMédia: %.1f" %(media))
             
     elif(opc == 5):
         for i in alunos_reprovados:
-            print(i)
+            media = sum(alunosDic[i]) / 3
+            print(f"\nNome: {i}\nNotas: {alunosDic[i]}\nMédia: %.1f" %(media))

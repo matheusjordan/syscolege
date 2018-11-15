@@ -51,6 +51,8 @@ def editNota(alunosDic):
 
                 notas[pos] = ler
                 break
+        
+        print("\nNota modificada com sucesso!")
     else:
         print("\nAluno não cadastrado!")
 
@@ -74,9 +76,13 @@ def delNota(alunosDic):
 
         #Deletar nota
         for i in notas:
-            if i == remover:
-                notas.remove(remover)
-                print("\nNota removida com sucesso")
+            if(i == remover):
+                rnota = notas.index(remover)
+                rnota = notas.pop(rnota)
+                print(f"\nNota {rnota} removida com sucesso")
+                break
+
+        alunosDic[ler] = notas
     else:
         print("\nAluno não cadastrado!")
     alunosLista = []

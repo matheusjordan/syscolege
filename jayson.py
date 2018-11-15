@@ -1,13 +1,13 @@
 #importação da biblioteca
 import json
 
-def abrir(arq):
-    file = open(arq,'r')
-    arq = json.load(file)
+def abrir(arquivo):
+    file = open(arquivo,'r')
+    arquivo = json.load(file)
     file.close()
-    return arq
+    return arquivo
 
-def salvar(dic, arq):
-    file = open(arq,'w')
-    json.dump(dic,file)
+def salvar(dicionario, arquivo):
+    file = open(arquivo,'w')
+    json.dump(dicionario,file)
     file.close()
