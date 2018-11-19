@@ -64,7 +64,7 @@ def listAlunos(alunosDic):
             media = sum(alunosDic[aluno]) / 3
             
             while(media in alunosM):
-                media += 1
+                media += 0.1
             
             alunosM[media] = aluno
         
