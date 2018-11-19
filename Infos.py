@@ -27,6 +27,7 @@ def bestAluno(alunosDic):
         if(media >= mediaANT):
             mediaMaior = media
             alunoBest = i
+            
             #Mostrar o melhor ou os melhores alunos
             print("\nAluno:",alunoBest,"\nMédia: %.1f" %mediaMaior)
         mediaANT = mediaMaior

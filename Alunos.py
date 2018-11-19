@@ -46,15 +46,44 @@ def listAlunos(alunosDic):
     while(ler < 1 or  ler > 2):
         ler = int(input("\nEscolha inválida\nDigite novamente: "))
 
+    #Pela ordem alfabética
     if(ler == 1):
         for i in alunosDic:
             alunosLista.append(i)
         alunosLista.sort()
-        for i in alunosLista:
-            print("\nNome:", i,"\nNotas:", alunosDic[i],"\nMédia: %.1f" %(sum(alunosDic[i])/3),"\n___________")
-        
-    elif(ler == 2):
-        print("\nEm breve")
 
-    else:
-        print("\nNão há Alunos cadastrados no sistema!")
+        for i in alunosLista:
+            print("\nNome:", i,"\nNotas:", alunosDic[i],"\nMédia: %.1f" %(sum(alunosDic[i])/3),"\n")
+    
+    #Por nota
+    elif(ler == 2):
+        alunosM = {}
+
+        #Criação de dicionario por media
+        for aluno in alunosDic:
+            media = sum(alunosDic[aluno]) / 3
+            
+            while(media in alunosM):
+                media += 1
+            
+            alunosM[media] = aluno
+        
+        #Adicionado todas as chaves do dicionario a uma lista ordenada
+        mediaLis = list(alunosM.keys())
+        mediaLis.sort(reverse=True)
+
+        #Algoritmo para mostrar em ordem decrescente os alunos a partir da maior nota
+        for media in mediaLis:
+            aluno = alunosM[media]
+            
+            if(media >= 7):
+                status = "Aprovado"
+
+            elif(media < 7 and media > 4.9):
+                status = "Final" 
+
+            elif(media < 5):
+                status = "Reprovado"
+
+            md = sum(alunosDic[aluno]) / 3
+            print(f"Nome: {aluno}\nNotas: {alunosDic[aluno]}\nMédia: {round(md, 1)}\nStatus: {status}\n")
