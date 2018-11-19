@@ -38,6 +38,7 @@ def resultAlunos(opc, alunosDic):
     alunos_reprovados = {}
     alunos_final = {}
 
+    #Adicionar alunos
     for i in alunosDic:
         media = sum(alunosDic[i]) / 3
         notas = alunosDic[i]
