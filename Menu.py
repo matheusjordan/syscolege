@@ -41,8 +41,8 @@ def menuNota():
         
     return opc
 
+#opções do Menu Informações
 def menuInfo():
-    #opções
     try:
         opc = int(input("\n-- Menu de Informações --\n01- Consultar Aluno por nome\n02- Exbir melhor Aluno\n03- Alunos aprovados \n04- Alunos na final\n05- Alunos reprovados\n00- Sair\nEscolha uma opção: "))
 
@@ -51,5 +51,5 @@ def menuInfo():
             opc = int(input("\nEscolha inválida\nDigite novamente: "))
     except:
         opc = menuInfo()
-        
+
     return opc
