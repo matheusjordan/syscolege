@@ -4,7 +4,7 @@ import jayson
 esc, opc = 0, 0
 loop = True
 
-#tratativa de erro ao carregar arquivo JSON
+#tratativa de erro ao carregar arquivo JSON 
 try:
     alunosDic = jayson.abrir('alunos.json')
 except:
@@ -17,11 +17,7 @@ while(loop):
     #Lista de opções
     esc = Menu.menuInit()
 
-    for i in range(3):
-        if(esc < 0 or esc > 3):
-            esc = int(input("\nEscolha inválida!\nDigite novamente: "))
-
-    else:
+    if(esc in range(3)):
         #Menu de Alunos
         while(esc == 1):
             import Alunos

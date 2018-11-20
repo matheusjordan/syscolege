@@ -4,6 +4,9 @@ def menuInit():
     #Tratativa de erro para entrada de valores inesperados
     try:
         esc = int(input("\n-- Menu --\n01- Alunos\n02- Notas\n03- Informações sobre alunos\n00- Sair\nEscolha uma opção: "))
+
+        while(esc < 0 or esc > 3):
+            esc = int(input("\nEscolha inválida!\nDigite novamente: "))
     except:
         print("Escolha inválida! O valor digitado é vazio ou não é um número!\nDigite novamente!")
         esc = menuInit()
@@ -36,13 +39,17 @@ def menuNota():
         #Verificação da opção escolhida
         while(opc < 0 or opc > 4):
             opc = int(input("\nEscolha inválida\nDigite novamente: "))
+            
     except:
+        print("\nEscolha inválida! O valor digitado é vazio ou não é um número!\nDigite novamente!")
         opc = menuNota()
         
     return opc
 
 #opções do Menu Informações
 def menuInfo():
+
+    #Tratativa de erro para entrada de valores inesperados
     try:
         opc = int(input("\n-- Menu de Informações --\n01- Consultar Aluno por nome\n02- Exbir melhor Aluno\n03- Alunos aprovados \n04- Alunos na final\n05- Alunos reprovados\n00- Sair\nEscolha uma opção: "))
 
@@ -50,6 +57,7 @@ def menuInfo():
         while(opc < 0 or opc > 5):
             opc = int(input("\nEscolha inválida\nDigite novamente: "))
     except:
+        print("\nEscolha inválida! O valor digitado é vazio ou não é um número!\nDigite novamente!")
         opc = menuInfo()
 
     return opc
