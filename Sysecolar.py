@@ -3,7 +3,13 @@ import jayson
 
 esc, opc = 0, 0
 loop = True
-alunosDic = jayson.abrir('alunos.json')
+
+#tratativa de erro ao carregar arquivo JSON
+try:
+    alunosDic = jayson.abrir('alunos.json')
+except:
+    print("Arquivo Json vazio ou não encontrado\nCarregando biblioteca default!")
+    alunosDic = {"TESTE":[10.0,10.0,10.0]}
 
 #Menu Inicial
 while(loop):
