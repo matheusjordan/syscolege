@@ -1,3 +1,4 @@
+#Função para adicionar uma lista de notas
 def addNotas(alunosDic):
     try:
         notas = list(map(float, input("\nDigite as notas do Aluno: ").split()))
@@ -12,13 +13,27 @@ def addNotas(alunosDic):
         for i in range(c):
             while(notas[i] < 0 or notas[i] > 10):
                 notas[i] = float(input("\n" + str(i+1) + "º Nota inválida\nDigite novamente: "))
-        
-        return notas
     except:
         print("\nNota(s) inválida(s)! O valor digitado é vazio ou não é um número!\nDigite novamente!")
         notas = addNotas(alunosDic)
         
     return notas
+
+#Função de leitura individual de notas
+def lerNota(opc = 0, notas = []):
+    try:
+        ler = float(input("\nDigite a nota do Aluno: "))
+
+        while(ler < 0 or ler > 10):
+            ler = float(input("\nNota inválida! Digite novamente: "))
+        
+        if(opc == 1):
+            while not(ler in notas):
+                ler = float(input("\nNota inválida! Digite novamente: "))
+
+    except:
+        lerNota()
+    return ler
 
 #Função para adicionar uma nota aos alunos
 def addNota(alunosDic):
@@ -40,10 +55,7 @@ def addNota(alunosDic):
 
         #Leitura da nota
         elif(nota < 3):
-            ler = float(input("\nDigite a nota do Aluno: "))
-
-            while(ler < 0 or ler > 10):
-                ler = float(input("\nNota inválida! Digite novamente: "))
+            ler = lerNota(0)
 
             lista = alunosDic[nome]
             lista.append(ler)
@@ -66,11 +78,7 @@ def editNota(alunosDic):
         for i in notas:
             if(i == ler):
                 pos = notas.index(ler)
-                ler = float(input("\nDigite a nova Nota: "))
-
-                while(ler < 0 or ler > 10):
-                    ler = float(input("\nNota inválida! Digite novamente: "))
-
+                ler = lerNota(0)
                 notas[pos] = ler
                 break
         
@@ -91,10 +99,7 @@ def delNota(alunosDic):
         print("\nNotas:",alunosDic[ler])
         notas = alunosDic[ler]
 
-        remover = float(input("\nDigite a nota à remover: "))
-
-        while not(remover in notas):
-            remover = float(input("\nNota inválida! Digite novamente: "))
+        remover = lerNota(1,notas)
 
         #Deletar nota
         for i in notas:

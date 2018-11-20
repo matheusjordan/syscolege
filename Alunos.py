@@ -30,7 +30,7 @@ def delAluno(alunosDic):
             print("Aluno "+ ler +" excluido com Sucesso!")
 
     else:
-        print("\nAluno  digitado não se encontra na lista!")
+        print("\nAluno não cadastrado!")
 
 #Função listar alunos 
 def listAlunos(alunosDic):
@@ -38,7 +38,7 @@ def listAlunos(alunosDic):
 
     #Tratativa de erro para entrada de valores inesperados
     try:
-        ler = int(input("\n01- Por Nome\n02- Por Nota\n00- Voltar\nEscolha uma opção: "))
+        ler = int(input("\n01- Por Nome\n02- Por Nota\n00- Voltar\n\nEscolha uma opção: "))
 
         while(ler < 0 or  ler > 2):
             ler = int(input("\nEscolha inválida\nDigite novamente: "))
