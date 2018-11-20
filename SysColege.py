@@ -17,7 +17,7 @@ while(loop):
     #Lista de opções
     esc = Menu.menuInit()
 
-    if(esc in range(3)):
+    if(esc in range(4)):
         #Menu de Alunos
         while(esc == 1):
             import Alunos

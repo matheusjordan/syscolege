@@ -1,4 +1,26 @@
-#Função para adicionar notas aos alunos
+def addNotas(alunosDic):
+    try:
+        notas = list(map(float, input("\nDigite as notas do Aluno: ").split()))
+
+        #Vertificação da lista de notas
+        c = len(notas)
+        while(c < 1 or c > 3):
+            notas = list(map(float, input("\nNotas inválidas\nDigite notas válidas ou 0: ")))
+            c = len(notas)
+
+        #verificação individual das notas
+        for i in range(c):
+            while(notas[i] < 0 or notas[i] > 10):
+                notas[i] = float(input("\n" + str(i+1) + "º Nota inválida\nDigite novamente: "))
+        
+        return notas
+    except:
+        print("\nNota(s) inválida(s)! O valor digitado é vazio ou não é um número!\nDigite novamente!")
+        notas = addNotas(alunosDic)
+        
+    return notas
+
+#Função para adicionar uma nota aos alunos
 def addNota(alunosDic):
     alunosLista = []
     nome = input("\nDigite o nome do Aluno: ").upper()

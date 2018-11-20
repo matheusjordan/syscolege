@@ -1,26 +1,20 @@
+import Notas
+
 #Função para adicionar alunos em uma lista
 def addAluno(alunosDic):
     ler = input("\nDigite o nome do Aluno: ").upper()
-    ver = input("Digite novamente o nome do Aluno: ").upper()
+
+    if(ler in alunosDic):
+        return print("\nAluno já cadastrado!")
+    
+    ver = input("Digite novamente o nome do aluno: ").upper()
 
     #Verificação do nome de alunos
     while(ler != ver):
         ler = input("\nNomes diferentes!\nDigite o nome do aluno corretamente: ").upper()
         ver = input("Digite novamente o nome do aluno: ").upper()
 
-    
-    notas = list(map(float, input("\nDigite as notas do Aluno: ").split()))
-    
-    #Vertificação da lista de notas
-    c = len(notas)
-    while(c < 1 or c > 3):
-        notas = list(map(float, input("\nNotas inválidas\nDigite notas válidas ou 0: ")))
-        c = len(notas)
-
-    #verificação individual das notas
-    for i in range(c):
-        while(notas[i] < 0 or notas[i] > 10):
-            notas[i] = float(input("\n" + str(i+1) + "º Nota inválida\nDigite novamente: "))
+    notas = Notas.addNotas(alunosDic)
 
     alunosDic[ler] = notas
     print("\nAluno", ler,"foi cadastrado com sucesso!")
