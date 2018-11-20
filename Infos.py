@@ -17,20 +17,20 @@ def buscarAluno(alunosDic):
 
 #Função que exibe o melhor ou os melhores alunos
 def bestAluno(alunosDic):
-    alunoBest = {}
     mediaANT = 0
     mediaMaior = 0
 
     #Algoritmo para verificar os alunos
     for i in alunosDic.keys():
         media = sum(alunosDic[i]) / 3
+        
         if(media >= mediaANT):
             mediaMaior = media
             alunoBest = i
-            
-            #Mostrar o melhor ou os melhores alunos
-            print("\nAluno:",alunoBest,"\nMédia: %.1f" %mediaMaior)
         mediaANT = mediaMaior
+    
+    #Mostrar o melhor aluno
+    print("\nAluno:",alunoBest,"\nNotas:",alunosDic[alunoBest],"\nMédia: %.1f" %mediaMaior)
 
 #Função para separar alunos aprovados dos reprovados
 def resultAlunos(opc, alunosDic):
